@@ -1,0 +1,53 @@
+.group-holder{
+    width: 300px;
+    min-height: 300px;
+    background: #45474e;
+    margin: 5px;
+    border-radius: 5px;
+    overflow: hidden;
+    .group-name{
+        background: #7c68e1;
+        margin: 0px;
+        padding: 10px;
+        color: white;
+        text-transform: uppercase;
+        font-weight: 900;
+    }
+    .player-list{
+        padding: 15px;
+        .player-holder{
+            display: flex;
+            margin: auto;
+            margin-top: 7px;
+            background: #ffffff21;
+            border-radius: 5px;
+            padding: 10px;
+            color: white;
+            text-transform: uppercase;
+            font-weight: 700;
+            justify-content: space-between;
+            align-items: center;
+            p{
+                margin: 0px;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+                width: 220px;
+                text-align: left;
+            }
+            .icon-holder{
+                width: 25px;
+                height: 25px;
+                border-radius:50%;
+                background: #7c68e1;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+                svg{
+                    width:50%;
+                }
+            }
+        }
+    }
+}

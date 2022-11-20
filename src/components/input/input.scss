@@ -1,0 +1,15 @@
+.custom-input{
+    background: #ffffff24;
+    border: solid 1px white;
+    padding: 10px;
+    color: white;
+    border-radius: 3px;
+    font-weight: 600;
+    text-align: center;
+    &.upper{
+        text-transform: uppercase;
+    }
+    &.wi-200{
+        min-width: 200px;
+    }
+}

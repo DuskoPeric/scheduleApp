@@ -1,0 +1,20 @@
+.player-form{
+    background: rgba(255, 255, 255, 0.1294117647);
+    margin-top: 7px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    .plus-holder{
+        width: 25px;
+        height: 25px;
+        background: #7c68e1;
+        margin-right: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        border-radius: 50%;
+    }
+}

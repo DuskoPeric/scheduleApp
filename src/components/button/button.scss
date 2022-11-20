@@ -1,0 +1,27 @@
+.custom-btn{
+        display: block;
+        background: #7c68e1;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        text-transform: uppercase;
+        font-weight: 700;
+        border-radius: 3px;
+        margin: 5px;
+        cursor: pointer;
+        transition: all 0.3s;
+        &:hover{
+            background: white;
+            color: #7c68e1;
+            transition: all 0.3s;
+        }
+        &.active{
+            background: white;
+            color: #7c68e1;
+        }
+        &.centered{
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 20px;
+        }
+}

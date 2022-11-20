@@ -1,0 +1,19 @@
+.group-adder{
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    border: solid #7c68e18f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .group-adder-holder{
+        p{
+            color: white;
+            text-transform: uppercase;
+            font-weight: 600;
+            font-size: 17px;
+            margin-top: 0px;
+        }
+
+    }
+}
