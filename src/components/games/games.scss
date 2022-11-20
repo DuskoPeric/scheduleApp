@@ -1,0 +1,80 @@
+.schedule-group-holder{
+    width: 700px;
+    background: #45474e;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    .games-holder{
+        padding: 10px;
+        .game-holder{
+            overflow: hidden;
+            display: flex;
+            margin-top: 7px;
+            background: #ffffff21;
+            border-radius: 5px;
+            color: white;
+            text-transform: uppercase;
+            font-weight: 700;
+            align-items: center;
+            .player-holder{
+                display: flex;
+                width: 50%;
+                justify-content: space-between;
+                .player-name{
+                    margin: auto;
+                }
+                .result-holder{
+                    width: 40px;
+                    height: 40px;
+                    background: #ffffff45;
+                    &.left{
+                        border-left:solid 1px white;
+                    }
+                    &.right{
+                        border-right:solid 1px white;
+                    }
+                }
+            }
+
+        }
+    }
+    .group-header{
+        background: #7c68e1;
+        margin: 0px;
+        padding: 10px;
+        color: white;
+        text-transform: uppercase;
+        font-weight: 900;
+    }
+
+}
+@media only screen and (max-width: 650px) {
+    .schedule-group-holder{
+        width: 100%;
+        .games-holder{
+            .game-holder{
+                flex-wrap: wrap;
+                .player-holder{
+                    width: 100%;
+                    &:first-child{
+                        border-bottom: solid 1px #ffffff85;
+                    }
+                }
+            }
+
+        }
+
+    }
+    .schedule-group-holder .games-holder .game-holder .player-holder .result-holder.right {
+        border-right: none;
+    }
+    .schedule-group-holder .games-holder .game-holder .player-holder .result-holder.left {
+        border-left:none;
+        order: 2;
+    }
+}
+@media print {
+    .schedule-group-holder{
+        margin-bottom: 200px;
+    }
+  }

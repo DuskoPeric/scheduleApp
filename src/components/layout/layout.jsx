@@ -4,6 +4,8 @@ import AddGroup from '../addGroup/addGroup';
 import Button from '../button/button';
 import Games from '../games/games';
 import './layout.scss'
+import { AiOutlinePrinter } from 'react-icons/ai';
+
 
 const Layout = () => {
     const [edit, setEdit] = useState(true);
@@ -83,7 +85,8 @@ const Layout = () => {
         <div>
             <div className="header">
                 <Button onClick={()=>{setEdit(true)}}>Edit</Button>
-                <Button additionalClasses='active' onClick={()=>{setEdit(false)}}>Schedule</Button>
+                {schedule.length>0 && <Button additionalClasses='active' onClick={()=>{setEdit(false)}}>Schedule</Button>}
+                {!edit && <Button additionalClasses="icon-btn-holder" onClick={()=>{window.print()}}><AiOutlinePrinter/></Button>}
             </div>
             {edit && <div>
                 <div className='groups-holder'>
@@ -98,7 +101,7 @@ const Layout = () => {
 
                 {groups.length>0 &&<Button onClick={generateGroups}>Generate</Button>}
             </div>}
-            {!edit &&<div>
+            {!edit &&<div className="schedule-holder">
                 {schedule.map((group, index)=><Games key={index} name={group.name} games={group.games}/>)}
             </div>}
         </div>

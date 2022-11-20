@@ -1,3 +1,6 @@
+body {
+  -webkit-print-color-adjust: exact !important;
+}
 .App {
   text-align: center;
   background: #35373e;
@@ -36,5 +39,11 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+@media print {
+  .App {
+    background: white;
   }
 }

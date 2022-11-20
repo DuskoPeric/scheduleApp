@@ -6,6 +6,7 @@
     padding: 15px;
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-evenly;
     .addnewgroup-holder{
         width: 300px;
         min-height: 300px;
@@ -46,3 +47,15 @@
 
     }
 }
+.schedule-holder{
+    display: flex;
+    padding: 20px;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+@media print {
+    .header{
+        display: none;
+    }
+  }
