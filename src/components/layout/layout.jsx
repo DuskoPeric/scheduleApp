@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import Group from '../group/group';
 import AddGroup from '../addGroup/addGroup';
 import Button from '../button/button';
@@ -13,22 +13,45 @@ const Layout = () => {
     const [schedule, setSchedule] = useState([]);
     const [openAdder, setOpenAdder] = useState(false)
 
+    useEffect(() => {
+        console.log('run')
+        const storageGroups=localStorage.getItem("groups");
+        const storageSchedule=localStorage.getItem("games");
+        if(storageGroups!==null){
+            console.log(JSON.parse(storageGroups))
+            setGroups(JSON.parse(storageGroups))
+        }
+        if (storageSchedule!==null) {
+            setSchedule(JSON.parse(storageSchedule))
+        }
+    }, []);
+
     const removePlayer=(player,i)=>{
         let copyGroups=[...groups];
         copyGroups[i].players.splice(player,1)
         return copyGroups;
     }
 
+    const deleteGroup=(i)=>{
+        let copyGroups=[...groups];
+        copyGroups.splice(i,1);
+        setGroups(copyGroups);
+    }
+
     const addPlayer=(player,i)=>{
         let copyGroups=[...groups];
         copyGroups[i].players.push(player);
         setGroups(copyGroups)
+        localStorage.setItem("groups", JSON.stringify(copyGroups));
       }
 
     const addGroup=(name)=>{
         setGroups([...groups,
             {name,players:[]}
         ])
+        localStorage.setItem("groups", JSON.stringify([...groups,
+            {name,players:[]}
+        ]));
         setOpenAdder(false);
     }
 
@@ -78,20 +101,21 @@ const Layout = () => {
               games.push(scheduleObj)
           }
           setSchedule(games);
+          localStorage.setItem("games", JSON.stringify(games));
           setEdit(false)
       }
 
     return (
         <div>
             <div className="header">
-                <Button onClick={()=>{setEdit(true)}}>Edit</Button>
-                {schedule.length>0 && <Button additionalClasses='active' onClick={()=>{setEdit(false)}}>Schedule</Button>}
+                <Button additionalClasses={edit?'active':''} onClick={()=>{setEdit(true)}}>Edit</Button>
+                {schedule.length>0 && <Button additionalClasses={!edit?'active':''} onClick={()=>{setEdit(false)}}>Schedule</Button>}
                 {!edit && <Button additionalClasses="icon-btn-holder" onClick={()=>{window.print()}}><AiOutlinePrinter/></Button>}
             </div>
-            {edit && <div>
+            {edit && <div className="general-holder">
                 <div className='groups-holder'>
                   {/*  */}
-                    {groups.map((group,index)=><Group key={index} name={group.name} players={group.players} addPalyer={(player)=>{addPlayer(player,index)}} deletePlayer={(player)=>{setGroups(removePlayer(player,index))}} />)}
+                    {groups.map((group,index)=><Group key={index} name={group.name} players={group.players} addPalyer={(player)=>{addPlayer(player,index)}} deletePlayer={(player)=>{setGroups(removePlayer(player,index))}} deleteGroup={()=>{deleteGroup(index)}} />)}
                     <div className="addnewgroup-holder">
                         {openAdder && <AddGroup addGroup={addGroup}/>}
                         {!openAdder && <div className="add-holder" onClick={()=>{setOpenAdder(true)}}><div className="add-btn" ><p>+</p></div></div>}
@@ -99,7 +123,7 @@ const Layout = () => {
                     </div>
                 </div>
 
-                {groups.length>0 &&<Button onClick={generateGroups}>Generate</Button>}
+                {groups.length>0 &&<Button additionalClasses="larger" onClick={generateGroups}>Generate Schedule</Button>}
             </div>}
             {!edit &&<div className="schedule-holder">
                 {schedule.map((group, index)=><Games key={index} name={group.name} games={group.games}/>)}

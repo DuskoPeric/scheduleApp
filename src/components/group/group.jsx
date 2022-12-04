@@ -4,10 +4,10 @@ import './group.scss'
 import { FaRegTrashAlt } from 'react-icons/fa';
 
 
-const Group = ({name,players,addPalyer,deletePlayer}) => {
+const Group = ({name,players,addPalyer,deletePlayer,deleteGroup}) => {
     return (
         <div className="group-holder">
-        <p className='group-name'>{name}</p>
+        <p className='group-name'>{name}<span onClick={deleteGroup}><FaRegTrashAlt /></span></p>
         <div className="player-list">
             {players.map((palyer,index)=>(
                 <div className="player-holder" key={index}>

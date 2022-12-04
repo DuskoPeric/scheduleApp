@@ -2,51 +2,54 @@
     padding: 15px;
     display: flex;
 }
-.groups-holder{
-    padding: 15px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    .addnewgroup-holder{
-        width: 300px;
-        min-height: 300px;
-        margin: 5px;
-
-        .add-holder{        
-            justify-content: center;
-            display: flex;
-            align-items: center;
-            transition: all 0.3s;
-            cursor: pointer;
-            width: 100%;
-            min-height: 100%;
-            border-radius: 8px;
-            border: dashed #7c68e18f;
-            &:hover{
-                background:rgba(0, 0, 0, 0.201);
-                transition: all 0.3s;
-            }
-            .add-btn{
-                width: 50px;
-                height: 50px;
-                background: #7c68e1;
-                display: flex;
+.general-holder{
+    padding-bottom: 50px;
+    .groups-holder{
+        padding: 15px;
+        display: flex;
+        flex-wrap: wrap;
+        .addnewgroup-holder{
+            width: 300px;
+            min-height: 300px;
+            margin: 5px;
+    
+            .add-holder{        
                 justify-content: center;
+                display: flex;
                 align-items: center;
-                font-size: 32px;
-                font-weight: 500;
-                color: white;
-                border-radius: 50%;
-                
-                p{
-                    position: relative;
-                    top: -3px;
+                transition: all 0.3s;
+                cursor: pointer;
+                width: 100%;
+                min-height: 100%;
+                border-radius: 8px;
+                border: dashed #7c68e18f;
+                &:hover{
+                    background:rgba(0, 0, 0, 0.201);
+                    transition: all 0.3s;
+                }
+                .add-btn{
+                    width: 50px;
+                    height: 50px;
+                    background: #7c68e1;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 32px;
+                    font-weight: 500;
+                    color: white;
+                    border-radius: 50%;
+                    
+                    p{
+                        position: relative;
+                        top: -3px;
+                    }
                 }
             }
+    
         }
-
     }
 }
+
 .schedule-holder{
     display: flex;
     padding: 20px;
